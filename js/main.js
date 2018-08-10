@@ -459,3 +459,13 @@ socket.on('cmd', function(cmd) {
   }  
 
 });
+
+var getRoomsBtn = document.getElementById('getRoomsBtn');
+getRoomsBtn.addEventListener('click', getRooms);
+function getRooms() {
+  socket.emit('getRooms');
+}
+
+socket.on('getRooms', function(rooms) {
+  console.log(rooms);
+});

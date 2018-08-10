@@ -84,7 +84,11 @@ io.sockets.on('connection', function(socket) {
   // test command 
   socket.on('cmd', function(cmd) {
     socket.broadcast.emit('cmd',cmd);
-    /* Act on the event */
+  });
+
+  socket.on('getRooms', function() {
+    var rooms = io.sockets.adapter.rooms;
+    socket.emit('getRooms',rooms);
   });
 
 
